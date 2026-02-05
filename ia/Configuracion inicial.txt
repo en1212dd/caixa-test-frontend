@@ -1,0 +1,14 @@
+version de react:19.2
+idioma de las carpetas: ingles
+
+informacion basica de la aplicacion: Se quiere crear una apilcacion web que consuma una api rest para la realizacion de distintas tareas CRUD, asi como algunas configuraciones almacenadas de manera local 
+theme, sync, user configuration, cache, etc. 
+
+Generame la estructura de carpetas de la aplicacion teniendo en cuenta lo siguiente 
+    - se va a usar principalmente el patron de diseño Container/Presentational
+    - Tiene que haber de manera obligatoria las siguientes carpetas 
+        -models,pages,shared
+        -ten en cuenta que en shared se pondran servicios, hooks , entre otros componentes reutilizables
+    -se dispondra del uso de barrel exports para imporst mas limpias 
+    - siguiendo con lo anterior se debe tener en cuenta el fichero tsconfig.app.json y vite.config.ts en donde se han añadido alias, 
+    por ende modificame los ficheros pertinentes para crear los alias nuevos a estas carpetas.
