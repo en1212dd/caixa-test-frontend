@@ -1,0 +1,90 @@
+.portal-loader {
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    transition: transform 0.3s ease;
+}
+
+
+.portal-outer-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-color: var(--secondary--color-400);
+    animation: spinPortal 4s linear infinite;
+}
+
+.portal-ring-segment {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary--color-600);
+    border-radius: 50%;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--secondary--color-600);
+}
+
+.portal-ring-segment:nth-child(2) {
+    top: 50%;
+    right: -10px;
+    left: auto;
+    transform: translateY(-50%);
+}
+
+.portal-ring-segment:nth-child(3) {
+    top: auto;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.portal-ring-segment:nth-child(4) {
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+}
+
+.portal-core {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%,
+            var(--secondary--color-400) 0%,
+            var(--secondary--color-600) 30%,
+            var(--secondary--color-800) 70%,
+            transparent 100%);
+}
+
+
+/* Animaciones */
+@keyframes spinPortal {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinSpiral {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

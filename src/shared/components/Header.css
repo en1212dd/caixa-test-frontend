@@ -1,0 +1,43 @@
+.header {
+    position: relative;
+    background-color: var(--background-color-header);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-img {
+    filter: brightness(0) grayscale(1);
+    height: 70%;
+}
+
+
+/* CENTER CONTAINER */
+#mid-container {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CENTER IMAGE */
+#mid-image {
+    height: 35vh;
+    object-fit: cover;
+}

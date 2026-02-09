@@ -1,0 +1,115 @@
+#main-wellcoming {
+    display: grid;
+    grid-template-rows: 20vh auto;
+    grid-template-areas:
+        "header"
+        "content";
+    height: 100dvh;
+    width: 100%;
+    background-color: var(--neutral--color-900);
+}
+
+#ship-container {
+    justify-self: stretch;
+    grid-area: header;
+    position: relative;
+}
+
+#ship {
+    position: absolute;
+    left: -150px;
+    width: 50%;
+    height: 120%;
+    background-image: url('src/assets/ship.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: shipAnimation 2.5s ease-in-out forwards;
+}
+
+@keyframes shipAnimation {
+    0% {
+        left: -150px;
+        filter: brightness(1) grayscale(0);
+        opacity: 0;
+    }
+
+    50% {
+        left: 25%;
+        filter: brightness(1) grayscale(0);
+        opacity: 1;
+    }
+
+    100% {
+        left: 25%;
+        filter: brightness(0) grayscale(1);
+        opacity: 1;
+    }
+}
+
+
+#title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-family: 'get-schwifty';
+    color: var(--secondary--color-500);
+    text-align: center;
+    letter-spacing: 2px;
+    -webkit-text-stroke: .2px var(--secondary--color-900);
+    opacity: 0;
+    animation: showSignature 1s ease-in-out 2.6s forwards;
+    z-index: 10;
+}
+
+@keyframes showSignature {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+#scroll-indicator-container {
+    grid-area: content;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    h1 {
+        font-size: 4rem;
+        font-family: 'get-schwifty';
+        color: var(--secondary--color-500);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        animation: bounce 2s infinite;
+    }
+}
+
+#scroll-indicator {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        animation: spin 5s infinite;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

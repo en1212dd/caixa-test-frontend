@@ -1,0 +1,278 @@
+/* Contenedor principal de las tarjetas */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-rows: auto;
+    gap: 30px;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+
+/* Estilos de la Tarjeta Principal */
+.character-card {
+    background: var(--background-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--secondary--color-500);
+    height: 100%;
+    min-height: 520px;
+    /* Clip-path para un borde futurista */
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
+}
+
+.character-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow:
+        0 25px 40px rgba(0, 0, 0, 0.7),
+        0 0 30px var(--secondary--color-700), ;
+    border-color: var(--secondary--color-500);
+}
+
+/* Contenedor para la imagen y el reflejo */
+.card-image-container {
+    position: relative;
+    height: 280px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.character-card:hover .character-image {
+    transform: scale(1.1);
+}
+
+/* Efecto de Reflejo Futurista */
+.card-reflection {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top,
+            var(--secondary--color-700) 0%,
+            rgba(6, 86, 158, 0.15) 30%,
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.character-card:hover .card-reflection {
+    opacity: 1;
+}
+
+/* Líneas de luz dinámicas */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+.character-card:hover .card-shine {
+    left: 150%;
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 280px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.character-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--secondary--color-500);
+    margin-right: 15px;
+    line-height: 1.2;
+    flex: 1;
+    word-break: break-word;
+}
+
+.character-id {
+    background: var(--secondary--color-900);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.character-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.info-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+
+.info-badge i {
+    margin-right: 6px;
+    font-size: 0.9rem;
+}
+
+/* Indicadores de estado con colores */
+.status-badge.alive {
+    background-color: rgba(136, 226, 59, 0.15);
+    color: var(--secondary--color-500);
+    border-color: var(--secondary--color-500);
+}
+
+.status-badge.dead {
+    background-color: rgba(255, 56, 96, 0.15);
+    color: var(--error--color-500);
+    border-color: var(--error--color-500);
+}
+
+.status-badge.unknown {
+    background-color: rgba(255, 221, 87, 0.15);
+    color: var(--warning--color-500);
+    border-color: var(--warning--color-500);
+}
+
+/* Detalles adicionales */
+.character-details {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 18px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    color: var(--primary-color-600);
+    min-width: 90px;
+    margin-right: 12px;
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.detail-label i {
+    margin-right: 8px;
+    color: var(--secondary--color-500);
+    margin-top: 2px;
+}
+
+.detail-value {
+    color: var(--secondary--color-50);
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+/* Badge para episodios */
+.episode-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--primary-color-500), #0a3d7a);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Pseudo-elemento para esquina decorativa */
+.character-card::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary--color-500);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--secondary--color-700);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .character-card {
+        min-height: 480px;
+    }
+
+    .card-image-container {
+        height: 240px;
+    }
+
+    .character-name {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .character-card {
+        min-height: auto;
+    }
+
+    .card-content {
+        height: auto;
+    }
+}
