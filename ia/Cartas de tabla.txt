@@ -1,0 +1,37 @@
+Creame cards en las que se muestre la siguente informacion export interface Character {
+    id: number;
+    name: string;
+    status: CharacterStatus;
+    species: string;
+    type: string;
+    gender: CharacterGender;
+    origin: {
+        name: string;
+        url: string;
+    };
+    location: {
+        name: string;
+        url: string;
+    };
+    image: string;
+    episode: string[];
+    url: string;
+    created: string;
+}export const CHARACTER_STATUS = {
+    ALIVE: 'Alive',
+    DEAD: 'Dead',
+    UNKNOWN: 'unknown'
+};
+
+export type CharacterStatus = ObjectValues<typeof CHARACTER_STATUS>;
+
+export const CHARACTER_GENDER = {
+    MALE: 'Male',
+    FEMALE: 'Female',
+    GENDELESS: 'Genderless',
+    UNKNOWN: 'unknown'
+};
+
+export type CharacterGender = ObjectValues<typeof CHARACTER_GENDER>; teniendo en cuenta que quiero que sea futurista, 
+con la tematica de rick y morty la serie y que tenga como color principal 
+88E23B y segundario 06569e, quiero que sean interactivas y que hagan un efecto de reflejo a la hora de hace hover en ellas

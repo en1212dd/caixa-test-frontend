@@ -1,0 +1,2 @@
+Generame un svg teniendo en cuenta la siguiente imagen [imagen de footer figma], en la que pueda cambiar los colores y se adecue al estilo
+de las pantallas existenetes en la aplicacion. 
