@@ -1,68 +1,119 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+:root {
+  font-family: Avenir, Helvetica, Arial, sans-serif, system-ui;
+  color-scheme: light dark;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /*Colors variables */
+
+  /*================*/
+  /*Primary colors*/
+  /*================*/
+  --primary--color-50: #9fd0fc;
+  --primary--color-100: #70b9fa;
+  --primary--color-200: #40a1f8;
+  --primary--color-300: #108af6;
+  --primary--color-400: #0770ce;
+  --primary--color-500: #06569e;
+  --primary--color-600: #05457e;
+  --primary--color-700: #043C6E;
+  --primary--color-800: #04345f;
+  --primary--color-900: #02223f;
+  /*================*/
+  /*Secondary colors*/
+  /*================*/
+  --secondary--color-50: #f0fbe7;
+  --secondary--color-100: #e1f8ce;
+  --secondary--color-200: #d2f4b5;
+  --secondary--color-300: #c4f19d;
+  --secondary--color-400: #b5ed84;
+  --secondary--color-500: #88E23B;
+  --secondary--color-600: #6bc71d;
+  --secondary--color-700: #519516;
+  --secondary--color-800: #36630f;
+  --secondary--color-900: #1b3207;
+
+  /*================*/
+  /*Error colors*/
+  /*================*/
+  --error--color-50: #FDE6E7;
+  --error--color-100: #FBCDCE;
+  --error--color-200: #FAB4B6;
+  --error--color-300: #F89B9E;
+  --error--color-400: #F68285;
+  --error--color-500: #F4696D;
+  --error--color-600: #EF282E;
+  --error--color-700: #C30E14;
+  --error--color-800: #820A0D;
+  --error--color-900: #410507;
+  /*================*/
+  /*Success colors*/
+  /*================*/
+  --success--color-50: #f0fbe7;
+  --success--color-100: #e1f8ce;
+  --success--color-200: #d2f4b5;
+  --success--color-300: #c4f19d;
+  --success--color-400: #b5ed84;
+  --success--color-500: #88E23B;
+  --success--color-600: #6bc71d;
+  --success--color-700: #519516;
+  --success--color-800: #36630f;
+  --success--color-900: #1b3207;
+  /*================*/
+  /*Warning colors*/
+  /*================*/
+  --warning--color-50: #fff8e1;
+  --warning--color-100: #ffecb3;
+  --warning--color-200: #ffe082;
+  --warning--color-300: #ffd54f;
+  --warning--color-400: #ffc82c;
+  --warning--color-500: #f9b700;
+  --warning--color-600: #e6a500;
+  --warning--color-700: #c28a00;
+  --warning--color-800: #9e6f00;
+  --warning--color-900: #5c4200;
+  /*================*/
+  /*Neutral colors*/
+  /*================*/
+  --neutral--color-50: #F2F4F4;
+  --neutral--color-100: #E5E9E9;
+  --neutral--color-200: #D9DEDE;
+  --neutral--color-300: #CCD3D3;
+  --neutral--color-400: #BFC8C8;
+  --neutral--color-500: #B2BDBD;
+  --neutral--color-600: #91A1A1;
+  --neutral--color-700: #718484;
+  --neutral--color-800: #556363;
+  --neutral--color-900: #384242;
+
+  /*dark mode colors*/
+  --background-color: var(--primary--color-900);
+  --background-color-header: var(--secondary--color-700);
+  --font-color: var(--secondary--color-50);
+  --hover-color: var(--secondary--color-500);
+  --border-color: var(--secondary--color-900);
+
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /*light mode colors*/
+    --background-color: var(--primary--color-50);
+    --background-color-header: var(--secondary--color-400);
+    --font-color: var(--secondary--color-900);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+/*Font definitions*/
+@font-face {
+  font-family: 'get-schwifty';
+  src: url('src/assets/fonts/get_schwifty.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
