@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Rick & Morty - Frontend Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de React desarrollado con la herramienta de desarrollo **Vite**, diseñado para ser rápido, modular y altamente escalable. El objetivo principal es ofrecer una interfaz funcional para la búsqueda de personajes de la API oficial de Rick & Morty.
 
-Currently, two official plugins are available:
+## Arquitectura y Patrones de Diseño
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El proyecto implementa el patrón de diseño **Contenedor/Presentación (Container/Presenter)**, permitiendo una separación clara entre la lógica de negocio y la interfaz de usuario:
 
-## React Compiler
+* **Containers**: Manejan el estado, la lógica y las llamadas a los servicios.
+* **Presentation**: Componentes puramente visuales que reciben datos vía props.
+* **Pages**: Se utilizan para separar la información y organizar las rutas principales de la aplicación.
+* **Barrel Exports**: Se han implementado archivos `index.ts` en carpetas como `/utils`, `/services`, `/models` y `/components` para simplificar las importaciones y mejorar la limpieza del código.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+##  Configuraciones Específicas
 
-## Expanding the ESLint configuration
+* **Control de Dependencias**: Se ha realizado una eliminación manual de las actualizaciones automáticas (carets/tildes) en el `package.json` para garantizar la estabilidad de las versiones y evitar conflictos inesperados.
+* **Imports Rápidos**: Se ha configurado el proyecto (vía `vite.config.ts` y `tsconfig.json`) para soportar alias de rutas, facilitando el mantenimiento y la lectura de los archivos al evitar rutas relativas complejas.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Funcionalidades y UX
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Pantalla de Inicio**: La primera pantalla muestra un "entrante" interactivo donde el usuario debe realizar scroll para visualizar una animación completa inspirada en el portal y la estética de la serie.
+2.  **Buscador de Personajes**: Una vez dentro de la aplicación principal, el usuario puede buscar personajes por:
+    * Nombre
+    * Especie
+    * Localización
+3.  **Paginación**: Sistema de navegación fluido para explorar todos los resultados de la API.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+##  Escalabilidad
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Este proyecto no es solo una solución a corto plazo, sino que ha sido preparado para crecer:
+* **Nuevas APIs**: El código ya contempla estructuras para integrar próximamente los endpoints de **Localizaciones** y **Episodios**.
+* **Temas**: Se ha dejado preparada la base para implementar un sistema de **Tema Claro y Oscuro**.
+* **Tipado**: Uso riguroso de TypeScript para asegurar que las nuevas funcionalidades sean fáciles de implementar sin introducir bugs.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Este proyecto ha sido desarrollado como una prueba técnica (Frontend Test) enfocada en la eficiencia, el orden arquitectónico y la fidelidad visual a la temática de Rick & Morty.
